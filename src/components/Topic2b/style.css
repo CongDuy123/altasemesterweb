@@ -1,0 +1,37 @@
+.Container {
+    display: flex;
+    justify-content: space-between;
+    padding: 100px 20px;
+
+}
+
+.item {
+    width: 30%;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+}
+
+
+.change {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.myButton {
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.btnChange {
+    margin-top: 20px;
+}
+
+.btnLogout {
+    padding: 10px;
+    background-color: red;
+    color: white;
+}

@@ -1,24 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+import Topic1 from "./components/Topic1";
+import Topic2b from "./components/Topic2b";
+import Login from "./components/Login";
 
 function App() {
+  const [index, setIndex] = useState(1);
+  const receiveLoginIndex = (index: number) => {
+    setIndex(index);
+  };
+
+  const receiveLogoutIndex = (index: number) => {
+    setIndex(index);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {localStorage.getItem("useName") == null ? (
+        index == 1 ? (
+          <Login handleLogin={receiveLoginIndex} />
+        ) : index == 2 ? (
+          <Topic2b handleLogout={receiveLogoutIndex} />
+        ) : (
+          <Topic1 />
+        )
+      ) : index == 1 ? (
+        <Login handleLogin={receiveLoginIndex} />
+      ) : index == 2 ? (
+        <Topic2b handleLogout={receiveLogoutIndex} />
+      ) : (
+        <Topic1 />
+      )}
     </div>
   );
 }
